@@ -1,0 +1,34 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["a4bacb08787b197f.olean"],
+  "m": false,
+  "i": "01120fcd17b5b30f.ilean",
+  "c": "1138a78c2370c7e4.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Volumes/Drag0ndddd/JustinSunPrize_Proofs/jsp-000320-formalization/.lake/build/lib/lean /Users/qinzhao/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean /Volumes/Drag0ndddd/JustinSunPrize_Proofs/jsp-000320-formalization/JSP_000320.lean -o /Volumes/Drag0ndddd/JustinSunPrize_Proofs/jsp-000320-formalization/.lake/build/lib/lean/JSP_000320.olean -i /Volumes/Drag0ndddd/JustinSunPrize_Proofs/jsp-000320-formalization/.lake/build/lib/lean/JSP_000320.ilean -c /Volumes/Drag0ndddd/JustinSunPrize_Proofs/jsp-000320-formalization/.lake/build/ir/JSP_000320.c --setup /Volumes/Drag0ndddd/JustinSunPrize_Proofs/jsp-000320-formalization/.lake/build/ir/JSP_000320.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "JSP_000320.lean:85:0: 'schinzel_counterexample' depends on axioms: [propext, Quot.sound]",
+   "level": "info"}],
+ "inputs":
+ [["deps",
+   [["«jsp-000320-formalization»/JSP_000320:extraDep",
+     [["@«jsp-000320-formalization»:extraDep", "00000000000006bb"]]],
+    ["imports", "00000000000006bb"]]],
+  ["libs",
+   [["import dynlibs", "00000000000006bb"],
+    ["package external libraries", "00000000000006bb"],
+    ["module dynlibs", "00000000000006bb"],
+    ["module plugins", "00000000000006bb"]]],
+  ["Lean 4.34.0, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b",
+   "a1c6c7aa3e9abfe7"],
+  ["/Volumes/Drag0ndddd/JustinSunPrize_Proofs/jsp-000320-formalization/JSP_000320.lean",
+   "b0f9b311796212e2"],
+  ["options", "00000000000006bb"],
+  ["isModule: false", "feefd2a0d3a1847e"],
+  ["Module.name: JSP_000320", "377ce2d19dbec15d"],
+  ["Package.id?: (some jsp-000320-formalization)", "95f5ef402b1e21e0"],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "4cec312619384b50"}
