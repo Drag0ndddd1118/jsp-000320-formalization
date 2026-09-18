@@ -27,3 +27,39 @@ lake build
 
 ## Contributors
 Formalization contributor: **赵钦 (Qin Zhao, [@Drag0ndddd1118](https://github.com/Drag0ndddd1118))**
+
+## Statement of record — `Challenge.lean`
+
+`Challenge.lean` declares the definitions the problem is phrased with and the proposition
+`jsp000320Statement`. It proves nothing, so a reviewer has only to read that one file to judge *what*
+has been claimed.
+
+```lean
+def jsp000320Statement : Prop :=
+∀ d : Nat, 99200 < d → d ≤ 99215 → ¬ (d ∣ binom 99215 15)
+```
+
+## Proof — `Submission.lean`
+
+`Submission.lean` imports `Challenge.lean`, so the proof and the statement refer to the *same*
+`jsp000320Statement` constant and cannot drift apart. The top-level result is
+
+```lean
+schinzel_counterexample
+```
+
+`schinzel_all_nonzero` computes C(99215, 15) and shows that each of the fifteen integers 99201, ..., 99215 leaves a nonzero remainder (`no_divisor_in_interval`), whence no such integer divides the coefficient; `schinzel_counterexample` converts that into non-divisibility.
+
+The file has no `axiom`, no `opaque`, no `sorry`, no `admit`, no `unsafe` and no `native_decide`,
+and imports nothing beyond Lean 4 core. `check.py` type-checks the bridge
+`example : jsp000320Statement := schinzel_counterexample` and audits `#print axioms schinzel_counterexample`.
+
+## Build and check
+
+```sh
+lake build
+python3 check.py
+```
+
+Toolchain: `leanprover/lean4:v4.34.0` (commit `293d5d0c0c3f3dded4688b3ccd6a33939ac5102b`). The development is self-contained: it
+uses Lean core only and depends on no external library.

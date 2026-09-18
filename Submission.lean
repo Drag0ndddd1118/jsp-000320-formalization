@@ -1,4 +1,4 @@
-/-!
+/-
 # Justin Sun Prize JSP-000320: Divisors of Binomial Coefficients Near the Upper Parameter
 
 Formalization of the resolution to Erdős's conjecture on divisors of binomial coefficients
@@ -32,19 +32,9 @@ verifying:
 Formalization contributor: 赵钦 (Qin Zhao, @Drag0ndddd1118)
 -/
 
-/-- Falling factorial n * (n - 1) * ... * (n - k + 1). -/
-def fallingFactorial (n : Nat) : Nat → Nat
-  | 0 => 1
-  | k + 1 => (n - k) * fallingFactorial n k
+import Challenge
 
-/-- Factorial k!. -/
-def factorial : Nat → Nat
-  | 0 => 1
-  | k + 1 => (k + 1) * factorial k
 
-/-- Binomial coefficient C(n, k) defined by the falling factorial formula. -/
-def binom (n k : Nat) : Nat :=
-  fallingFactorial n k / factorial k
 
 /--
 Exhaustive kernel verification that C(99215, 15) is not divisible by any of the
@@ -52,7 +42,6 @@ Exhaustive kernel verification that C(99215, 15) is not divisible by any of the
 -/
 theorem schinzel_all_nonzero :
     (List.range 15).all (fun i => binom 99215 15 % (99201 + i) != 0) = true := rfl
-
 /--
 Every integer d strictly within (99200, 99215] leaves a non-zero remainder when dividing C(99215, 15).
 -/
@@ -67,7 +56,6 @@ theorem no_divisor_in_interval (d : Nat) (h_low : 99200 < d) (h_high : d ≤ 992
   rw [← hd] at h_all
   intro h_div
   simp [h_div] at h_all
-
 /--
 Main Theorem (JSP-000320):
 Schinzel's counterexample (1958) refutes Erdős's conjecture:
